@@ -1,7 +1,14 @@
 #merge all files into one dataset
 import os
 import h5py
+import numpy as np
 dir_path = r'../pdata/Intra/train/'
+
+def get_dataset_name(file_name_with_dir):
+    filename_without_dir = file_name_with_dir.split("/")[-1]
+    temp = filename_without_dir.split("_")[:-1]
+    datasetname = "_".join(temp)
+    return datasetname
 
 def get_label(filename):
     if 'rest' in filename:
